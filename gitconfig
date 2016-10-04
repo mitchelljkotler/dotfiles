@@ -1,0 +1,18 @@
+[user]
+	name = Mitchell Kotler
+	email = mitchell.kotler@eprovenance.com
+
+[alias]
+	ci = commit
+	co = checkout
+	s = status
+	l = log
+	b = branch
+	m = merge
+	d = diff
+	a = add
+
+[color]
+	ui = true
+[push]
+	default = matching

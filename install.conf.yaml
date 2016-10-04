@@ -1,0 +1,19 @@
+
+- defaults:
+    link:
+        relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.bashrc: bashrc
+    ~/.dir_colors: dir_colors
+    ~/.git-prompt.sh: git-prompt.sh
+    ~/.gitconfig: gitconfig
+    ~/.screenrc: screenrc
+    ~/.vim: vim
+    ~/.vimrc: vimrc
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
+    - [vim +PluginInstall +qall, Installing vim plugins]

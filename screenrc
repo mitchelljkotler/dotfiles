@@ -1,0 +1,30 @@
+#term rxvt
+#terminfo and termcap for nice 256 color terminal
+# allow bold colors - necessary for some reason
+attrcolor b ".I"
+# tell screen how to set colors. AB = background, AF=foreground
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+# erase background with current bg color
+#defbce "on"
+#term xterm-256color
+#term screen-256color
+term screen
+startup_message off
+
+vbell off
+
+hardstatus alwayslastline
+#hardstatus string '%{= kw}[ %{W}%H%{w} ][%= %?%-Lw%?(%{Y}%n*%f%t%?(%u)%?%{w})%?%+Lw%?%?%= ][%{W}%C%a %m/%d/%Y%{w}]'
+#hardstatus string '%{= kw}[ %{W}%H%{w} ][ %?%-Lw%?(%{Y}%n*%f%t%?(%u)%?%{w})%?%+Lw%?%? ][%{W}%C%a %m/%d/%Y%{w}]'
+hardstatus string '%{= kw}[ %{d}%H%{w} ][%{d}%= %?%-Lw%?%{w}(%{y}%n*%f%t%?(%u)%?%{w})%{d}%?%+Lw%?%?%= %{w}][%{d}%C%a %m/%d/%Y%{w}]'
+
+shelltitle '$ |tcsh'
+
+defscrollback 30000 
+
+#term screen-256color
+
+#turn of freeze command
+bind s
+
+vbell off

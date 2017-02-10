@@ -1,0 +1,11 @@
+{
+	"segments": {
+		"right": [
+			{
+				"function": "powerline.segments.common.net.hostname",
+                "priority": 10,
+				"args": {"exclude_domain": true}
+			}
+		]
+	}
+}

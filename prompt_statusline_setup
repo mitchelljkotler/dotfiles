@@ -36,6 +36,14 @@ _prompt_statusline_right_segments=(git-status virtualenv clock history machine)
 # Segment drawing utility
 #
 
+function coalesce {
+	for arg in $argv; do
+		print "$arg"
+		return 0
+	done
+	return 1
+}
+
 prompt_statusline_draw() {
 	local -a left right start end center diamond standalone no_draw warning
 	local escape_sequences='%([BSUbfksu]|([FB]|){*})'
@@ -136,8 +144,10 @@ prompt_statusline_draw() {
 	#  Sample output 
 	if [[ -n $diamond ]]; then
 		local padding_color=$4
+		local length=$(( (COLUMNS - $#3 - 4) / 2 ))
 		[[ -z $4 ]] && padding_color=$_prompt_statusline_bg[2]
 		echo -n "%F{$1}%K{$padding_color}$_prompt_statusline_symbols[1]%F{$2}%K{$1} $3 %F{$1}%K{$padding_color}$_prompt_statusline_symbols[4]%f%E%k"
+		[[ -n "$TMUX" ]] && echo -n "%K{$padding_color}%{${(l:$length:: :)}%}%k"
 
 	# Standalone
 	elif [[ -n $standalone ]]; then
